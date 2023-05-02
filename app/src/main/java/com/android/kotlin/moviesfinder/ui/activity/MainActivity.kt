@@ -2,16 +2,26 @@ package com.android.kotlin.moviesfinder.ui.activity
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.android.kotlin.dependencyinjectionhilt.databinding.ActivityMainBinding
+import com.android.kotlin.moviesfinder.network.service.MoviesService
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityMainBinding
 
+    @Inject
+    lateinit var moviesService: MoviesService
+
+    @Inject
+    lateinit var apiKey: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +35,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun setClickListeners() {
         binding.searchButton.setOnClickListener {
-            binding.progressBar.visibility = View.VISIBLE
-            Log.d("Developer", "Search button clicked")
+            GlobalScope.launch {
+                val query = binding.searchQuery.text.toString()
+                val response = moviesService.searchMovies(query, apiKey)
+                if (response.isSuccessful) {
+                    response.body()?.searchResults?.forEach {
+                        Log.d("Developer", it.title)
+                    }
+                }
+            }
 
         }
     }
