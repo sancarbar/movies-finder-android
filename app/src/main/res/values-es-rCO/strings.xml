@@ -1,0 +1,18 @@
+<resources>
+    <string name="action_settings">Configuracion</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="movie_finder_fragment_label">Buscador Peliculas</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
+    <string name="search">buscar</string>
+    <string name="type_movie_title">escribe el nombre de la pelicula</string>
+    <string name="logout">Logout</string>
+    <string name="no_results_found">No se encontraron resulados</string>
+</resources>
