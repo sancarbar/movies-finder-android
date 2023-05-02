@@ -12,7 +12,8 @@
     <string name="password">password</string>
     <string name="login">Login</string>
     <string name="search">buscar</string>
-    <string name="type_movie_title">escribe el nombre de la pelicula</string>
+    <string name="type_movie_title">escribe el nombre de la película</string>
     <string name="logout">Logout</string>
     <string name="no_results_found">No se encontraron resulados</string>
+    <string name="movie_poster_image">imagen del poster de la película</string>
 </resources>
